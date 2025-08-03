@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://thielts.com/sitemap.xml
+
+# Disallow admin/private areas (if any exist in future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /uploads/
+
+# Allow important pages
+Allow: /
+Allow: /blog
+Allow: /projects
+Allow: /learn
+Allow: /testimonials
+Allow: /faq
+Allow: /contact
+Allow: /privacy
+Allow: /legal

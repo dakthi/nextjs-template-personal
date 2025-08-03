@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  html,
+  body {
+
+  }
+}
+
+em {
+  font-weight: 500;
+  color: #1f2937; /* dark text for light mode */
+  font-style: normal;
+}
+
+.dark em {
+  color: #f9fafb; /* white text for dark mode */
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
