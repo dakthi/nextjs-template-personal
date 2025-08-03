@@ -21,25 +21,25 @@ export const Navbar = () => {
   const translations = {
     en: {
       nav: [
-        { label: "is she real?", href: "blog" },
-        { label: "projects/work", href: "projects" },
-        { label: "learn", href: "learn" },
-        { label: "testimonials", href: "testimonials" },
-        { label: "faq", href: "faq" },
+        { label: "Tax Articles", href: "blog" },
+        { label: "Services", href: "projects" },
+        { label: "About", href: "learn" },
+        { label: "Testimonials", href: "testimonials" },
+        { label: "FAQ", href: "faq" },
       ],
-      contact: "have a chat",
+      contact: "Contact Lieu",
       lightMode: "light mode",
       darkMode: "dark mode",
     },
     vi: {
       nav: [
-        { label: "có thật không vậy?", href: "blog" },
-        { label: "dự án/công việc", href: "projects" },
-        { label: "học hỏi", href: "learn" },
-        { label: "người ta nói", href: "testimonials" },
-        { label: "câu hỏi thường gặp", href: "faq" },
+        { label: "Bài viết về thuế", href: "blog" },
+        { label: "Dịch vụ", href: "projects" },
+        { label: "Giới thiệu", href: "learn" },
+        { label: "Đánh giá", href: "testimonials" },
+        { label: "Câu hỏi thường gặp", href: "faq" },
       ],
-      contact: "Thi ơi?",
+      contact: "Liên hệ Liệu",
       lightMode: "chế độ sáng",
       darkMode: "chế độ tối",
     },
@@ -78,22 +78,31 @@ export const Navbar = () => {
             {/* Logo */}
             <Link
               href={`/${currentLocale}`}
-              className="flex flex-col items-start space-y-1"
+              className="flex items-center space-x-3"
             >
-              <span
-                className={`font-light text-black dark:text-white transition-all duration-300 ${
-                  scrolled ? "text-xl" : "text-2xl"
+              <img
+                src="/img/lieu-1.jpg"
+                alt="Lieu Vo"
+                className={`rounded-full transition-all duration-300 ${
+                  scrolled ? "w-10 h-10" : "w-12 h-12"
                 }`}
-              >
-                Thi Dac Nguyen
-              </span>
-              <span
-                className={`text-gray-600 dark:text-gray-300 font-light transition-all duration-300 ${
-                  scrolled ? "text-xs hidden sm:inline" : "text-sm"
-                }`}
-              >
-                but it&apos;s pronounced Tea
-              </span>
+              />
+              <div className="flex flex-col items-start space-y-1">
+                <span
+                  className={`font-medium text-black dark:text-white transition-all duration-300 ${
+                    scrolled ? "text-xl" : "text-2xl"
+                  }`}
+                >
+                  Lieu Vo
+                </span>
+                <span
+                  className={`text-gray-600 dark:text-gray-300 font-light transition-all duration-300 ${
+                    scrolled ? "text-xs hidden sm:inline" : "text-sm"
+                  }`}
+                >
+                  UK Tax Expert & Accountant
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}

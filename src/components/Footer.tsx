@@ -12,31 +12,31 @@ export function Footer({ locale }: FooterProps) {
   const pathname = usePathname();
   const currentLocale = locale || (pathname?.startsWith("/vi") ? "vi" : "en");
   const navigation = [
-    { label_en: "is she real?", label_vi: "cô ấy có thật không?", href: "/blog" },
-    { label_en: "projects/work", label_vi: "dự án/công việc", href: "/projects" },
-    { label_en: "learn", label_vi: "học", href: "/learn" },
-    { label_en: "testimonials", label_vi: "cảm nhận", href: "/testimonials" },
-    { label_en: "faq", label_vi: "hỏi đáp", href: "/faq" },
+    { label_en: "Tax Articles", label_vi: "Bài viết về thuế", href: "/blog" },
+    { label_en: "Services", label_vi: "Dịch vụ", href: "/projects" },
+    { label_en: "About", label_vi: "Giới thiệu", href: "/learn" },
+    { label_en: "Testimonials", label_vi: "Đánh giá", href: "/testimonials" },
+    { label_en: "FAQ", label_vi: "Câu hỏi thường gặp", href: "/faq" },
   ];
 
   const legal = [
-    { label_en: "terms", label_vi: "điều khoản", href: "/legal" },
-    { label_en: "privacy", label_vi: "bảo mật", href: "/privacy" },
-    { label_en: "contact", label_vi: "liên hệ", href: "/contact" },
+    { label_en: "Terms", label_vi: "Điều khoản", href: "/legal" },
+    { label_en: "Privacy", label_vi: "Bảo mật", href: "/privacy" },
+    { label_en: "Contact", label_vi: "Liên hệ", href: "/contact" },
   ];
 
   const content = {
     en: {
-      tagline: "but it's pronounced Tea.",
-      description: "Thi Nguyen offers a wide range of marketing, automation consultancy for small, medium enterprises. Email: dakthi9@gmail.com. She's currently based in London, UK.",
-      keepInTouch: "keep in touch (I'd love to)",
-      copyright: "Made by Thi Nguyen"
+      tagline: "UK Tax Expert & Accountant",
+      description: "Lieu Vo is a qualified accountant based in London, UK. She shares tax knowledge and helps people understand practical tax applications for self-employed and limited companies.",
+      keepInTouch: "Connect with Lieu",
+      copyright: "Made by Lieu Vo"
     },
     vi: {
-      tagline: "nhưng phát âm là Tea.",
-      description: "Thi Nguyen cung cấp dịch vụ tư vấn marketing và tự động hóa cho doanh nghiệp nhỏ và vừa. Email: dakthi9@gmail.com. Hiện cô ấy sống tại London, UK.",
-      keepInTouch: "giữ liên lạc (mình rất vui)",
-      copyright: "Được tạo bởi Thi Nguyen"
+      tagline: "Chuyên gia thuế & Kế toán UK",
+      description: "Lieu Vo là kế toán viên có trình độ tại London, UK. Cô chia sẻ kiến thức về thuế và giúp mọi người hiểu về ứng dụng thuế thực tế cho tự kinh doanh và công ty hữu hạn.",
+      keepInTouch: "Kết nối với Liệu",
+      copyright: "Được tạo bởi Lieu Vo"
     }
   };
 
@@ -49,9 +49,16 @@ export function Footer({ locale }: FooterProps) {
           <div className="lg:col-span-2">
             <div className="mb-5">
               <Link href={`/${currentLocale}`}>
-                <span className="flex items-center space-x-2 text-xl font-light text-black dark:text-white">
-                  <span>Thi Nguyen</span>
-                </span>
+                <div className="flex items-center space-x-3 mb-2">
+                  <img
+                    src="/img/lieu-1.jpg"
+                    alt="Lieu Vo"
+                    className="w-12 h-12 rounded-full"
+                  />
+                  <span className="text-xl font-medium text-black dark:text-white">
+                    Lieu Vo
+                  </span>
+                </div>
                 <span className="flex items-center space-x-2 text-sm font-light text-gray-600 dark:text-gray-300">
                   <span>{t.tagline}</span>
                 </span>
@@ -93,11 +100,11 @@ export function Footer({ locale }: FooterProps) {
               {t.keepInTouch}
             </div>
             <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a href="https://www.facebook.com/nganhthi247/" target="_blank" rel="noopener">
+              <a href="https://www.facebook.com/lieuvo.uk" target="_blank" rel="noopener">
                 <span className="sr-only">Facebook</span>
                 <Facebook />
               </a>
-              <a href="https://www.linkedin.com/in/dakthi/" target="_blank" rel="noopener">
+              <a href="https://www.linkedin.com/in/lieu-vo-uk" target="_blank" rel="noopener">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin />
               </a>
