@@ -1,5 +1,4 @@
-
-name: Build and Deploy
+name: Build and Deploy Personaltemplate
 
 on:
   push:
@@ -18,10 +17,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
 
       - name: Build Docker image
-        run: docker buildx build --platform linux/amd64 -t thielts:latest --load .
+        run: docker buildx build --platform linux/amd64 -t personaltemplate:latest --load .
 
       - name: Save Docker image to tar.gz
-        run: docker save thielts:latest | gzip > thielts.tar.gz
+        run: docker save personaltemplate:latest | gzip > personaltemplate.tar.gz
 
       - name: Copy image to VPS
         uses: appleboy/scp-action@master
@@ -29,7 +28,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          source: "thielts.tar.gz"
+          source: "personaltemplate.tar.gz"
           target: "/root/docker-images/"
 
       - name: Deploy on VPS
@@ -39,4 +38,4 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            /root/docker-images/deploy-thielts.sh
+            /root/docker-images/deploy-personaltemplate.sh
