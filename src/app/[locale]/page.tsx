@@ -5,7 +5,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'vi' }];
+  return [{ locale: "en" }, { locale: "vi" }];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -110,53 +110,55 @@ export default function HomePage({ params }: Props) {
 
   return (
     <main className="min-h-screen bg-pink-50 dark:bg-neutral-900 font-sans tracking-wide">
-      <div className="max-w-3xl mx-auto px-4 py-8 space-y-8">
-        {/* Profile Card */}
-        <div className="relative bg-white dark:bg-neutral-800 rounded-2xl shadow-2xl p-8 transform rotate-1 hover:rotate-0 transition-transform">
-          <div className="flex flex-col items-center space-y-4">
-            <img
-              src="/img/lieu-1.jpg"
-              alt="Lieu Vo"
-              className="w-36 h-36 rounded-full object-cover shadow-lg border-4 border-pink-200"
-            />
-            <div className="text-center space-y-1">
-              <h1 className="text-4xl font-bold text-pink-700">{profileData.name}</h1>
-              <p className="text-gray-500 italic">{profileData.followers}</p>
-              <p className="text-xl text-pink-500">{profileData.title}</p>
-              <p className="text-gray-400">{profileData.location}</p>
+      <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
+        {/* Side by Side Layout on XL */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          {/* Profile Card */}
+          <div className="relative bg-white dark:bg-neutral-800 rounded-2xl shadow-2xl p-8 transform rotate-1 hover:rotate-0 transition-transform">
+            <div className="flex flex-col items-center space-y-4">
+              <img
+                src="/img/lieu-1.jpg"
+                alt="Lieu Vo"
+                className="w-36 h-36 rounded-full object-cover shadow-lg border-4 border-pink-200"
+              />
+              <div className="text-center space-y-1">
+                <h1 className="text-4xl font-bold text-pink-700">{profileData.name}</h1>
+                <p className="text-gray-500 italic">{profileData.followers}</p>
+                <p className="text-xl text-pink-500">{profileData.title}</p>
+                <p className="text-gray-400">{profileData.location}</p>
+              </div>
+            </div>
+            {/* Floating Gallery */}
+            <div className="grid grid-cols-5 gap-2 mt-8">
+              {[2, 3, 4, 5, 6].map((num, i) => (
+                <img
+                  key={i}
+                  src={`/img/lieu-${num}.jpg`}
+                  alt={`Lieu Vo photo ${num}`}
+                  className="w-full h-20 object-cover rounded-lg shadow-md transform hover:rotate-3 hover:scale-105 transition-transform duration-300"
+                />
+              ))}
             </div>
           </div>
 
-          {/* Floating Gallery */}
-          <div className="grid grid-cols-5 gap-2 mt-8">
-            {[2, 3, 4, 5, 6].map((num, i) => (
+          {/* Intro Section */}
+          <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-6 transform -rotate-1 hover:rotate-0 transition-transform">
+            <div className="flex flex-col gap-6">
               <img
-                key={i}
-                src={`/img/lieu-${num}.jpg`}
-                alt={`Lieu Vo photo ${num}`}
-                className="w-full h-20 object-cover rounded-lg shadow-md transform hover:rotate-3 hover:scale-105 transition-transform duration-300"
+                src="/img/lieu-2.jpg"
+                alt="Lieu Vo at work"
+                className="rounded-xl object-cover shadow-lg border border-pink-200"
               />
-            ))}
-          </div>
-        </div>
-
-        {/* Intro Section */}
-        <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-6 transform -rotate-1 hover:rotate-0 transition-transform">
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <img
-              src="/img/lieu-2.jpg"
-              alt="Lieu Vo at work"
-              className="md:w-1/3 rounded-xl object-cover shadow-lg border border-pink-200"
-            />
-            <div className="md:w-2/3 space-y-3 text-gray-700 dark:text-gray-300">
-              <h2 className="text-3xl font-bold text-pink-700 underline decoration-wavy">
-                Giới thiệu
-              </h2>
-              <p>{profileData.introduction}</p>
-              <p>{profileData.description}</p>
-              <p>{profileData.mission}</p>
-              <p>{profileData.gratitude}</p>
-              <p className="font-semibold text-pink-600">{profileData.wishes}</p>
+              <div className="space-y-3 text-gray-700 dark:text-gray-300">
+                <h2 className="text-3xl font-bold text-pink-700 underline decoration-wavy">
+                  Giới thiệu
+                </h2>
+                <p>{profileData.introduction}</p>
+                <p>{profileData.description}</p>
+                <p>{profileData.mission}</p>
+                <p>{profileData.gratitude}</p>
+                <p className="font-semibold text-pink-600">{profileData.wishes}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -177,9 +179,7 @@ export default function HomePage({ params }: Props) {
 
         {/* Articles */}
         <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-xl p-8">
-          <h2 className="text-3xl font-bold text-pink-700 mb-6">
-            Bài viết của Liệu
-          </h2>
+          <h2 className="text-3xl font-bold text-pink-700 mb-6">Bài viết của Liệu</h2>
           <div className="space-y-4">
             {profileData.articles.map((article, i) => (
               <div
